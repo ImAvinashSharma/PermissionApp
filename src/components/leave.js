@@ -1,15 +1,22 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import fire from "../files/firebase";
 
 function Form() {
+  const history = useHistory();
   const [name, setName] = useState("");
   const [rno, setRno] = useState("");
   const [permission, setPermission] = useState("");
-  const [noPer, setNoPer] = useState("");
+  const [noPeriods, setNoPeriods] = useState("");
   const [course, setCourse] = useState("BTech");
   const [branch, setBranch] = useState("CSE");
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    //TODO: Add validation and db push
+    await fire
+      .firestore()
+      .collection("leaves")
+      .add({ name, rno, permission, noPeriods, course, branch });
+    history.push("/homepage");
     console.log(course, branch);
   };
   return (
@@ -68,7 +75,7 @@ function Form() {
         <br />
         <label>
           Number of periods
-          <input type="number" name="period" min="1" max="6" placeholder="periodc (between 1 and 6):" onChange={e => setNoPer(e.target.value)} />
+          <input type="number" name="period" min="1" max="6" placeholder="periodc (between 1 and 6):" onChange={e => setNoPeriods(e.target.value)} />
         </label>
         <br />
 
@@ -77,7 +84,7 @@ function Form() {
           <textarea type="text" onChange={e => setPermission(e.target.value)} />
         </label>
         <br />
-        {name && rno && course && branch && noPer && permission ? (
+        {name && rno && course && branch && noPeriods && permission ? (
           <div>
             <h1>Conform Your Details</h1>
             <h3>Name: {name}</h3>
@@ -85,12 +92,12 @@ function Form() {
             <h3>Course: {course}</h3>
             <h3>Branch: {branch}</h3>
             <h3>Permission for: {permission}</h3>
-            <h3>Number of periods: {noPer}</h3>
+            <h3>Number of periods: {noPeriods}</h3>
+            <input type="submit" value="Submit" />
           </div>
         ) : (
           ""
         )}
-        <input type="submit" value="Submit" />
       </form>
     </div>
   );

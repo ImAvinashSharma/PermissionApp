@@ -1,15 +1,14 @@
- import firebase from 'firebase';
- 
- var firebaseConfig = {
-    apiKey: "AIzaSyBkxFx6Iid_6QMY_n-vUlPs3rwgAPqfTBM",
-    authDomain: "ticket-booking-app-c2d66.firebaseapp.com",
-    projectId: "ticket-booking-app-c2d66",
-    storageBucket: "ticket-booking-app-c2d66.appspot.com",
-    messagingSenderId: "207269504185",
-    appId: "1:207269504185:web:cf75be7a8b8d7cbda86768",
-    measurementId: "G-0BTHRH3YRB"
-  };
-  // Initialize Firebase
-   var fire = firebase.initializeApp(firebaseConfig);
+import firebase from "firebase";
 
-   export default fire;
+const firebaseConfig = {
+  apiKey: "AIzaSyDNlFv4xqGzca3laD9MKyO7R84zYkojc54",
+  authDomain: "cmrcet-dj.firebaseapp.com",
+  projectId: "cmrcet-dj",
+  storageBucket: "cmrcet-dj.appspot.com",
+  messagingSenderId: "401117059096",
+  appId: "1:401117059096:web:01984bc294a6fdea5b0b6d"
+};
+// Initialize Firebase
+const fire = firebase.initializeApp(firebaseConfig);
+
+export default fire;
