@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 function Sidebar() {
-  const sideEle = ["homepage", "dashboard", "bookings", "userprofile", "logout"];
+  const sideEle = ["homepage", "dashboard", "bookings", "leave", "userprofile", "logout"];
   const location = useLocation();
   //TODO: to add active class to the current page
   const { profile, name, email, password, mobile } = location.state;
@@ -20,7 +20,7 @@ function Sidebar() {
               <li className={`nav-item`}>
                 <Link to={{ pathname: `/${ele}`, state: { profile: profile, name: name, email: email, password: password, mobile: mobile } }} className="nav-link">
                   <i className="material-icons">{ele === "userprofile" ? "person" : ele}</i>
-                  <p>{ele}</p>
+                  <p>{ele === "leave" ? "Apply for leave" : ele}</p>
                 </Link>
               </li>
             );
