@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import DateRange from "@material-ui/icons/DateRange";
 import WeekendSharpIcon from "@material-ui/icons/WeekendSharp";
-import AttachMoneySharpIcon from "@material-ui/icons/AttachMoneySharp";
+import AccessibilityIcon from "@material-ui/icons/Accessibility";
 import fire from "../files/firebase";
 import ChatBotCore from "./ChatBotCore";
 import "../movie_details.css";
@@ -30,7 +30,7 @@ export const Dashboard = () => {
       );
   }, []);
   return (
-    <div className="wrapper ">
+    <div className="wrapper">
       <Sidebar />
       <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
       <div className="main-panel">
@@ -50,26 +50,7 @@ export const Dashboard = () => {
             {userbookings.map((data, index) => {
               return (
                 <div class="row" key={index}>
-                  <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="card card-stats">
-                      {/* <div class="card-header card-header-warning card-header-icon">
-                                                <div class="card-icon">
-                                                <i class="material-icons"><LocalMoviesIcon /></i>
-                                                </div>
-                                                <p class="card-category">Movie Name</p>
-                                                <h3 class="card-title">{data.data.moviename}
-
-                                                </h3>
-                                            </div> */}
-                      <div class="card-footer">
-                        <div class="stats">
-                          <i class="material-icons text-danger">warning</i>
-                          Movie Name
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6 col-sm-6">
+                  <div class="col-lg-10 col-md-8 col-sm-8">
                     <div class="card card-stats">
                       <div class="card-header card-header-success card-header-icon">
                         <div class="card-icon">
@@ -82,12 +63,12 @@ export const Dashboard = () => {
                       </div>
                       <div class="card-footer">
                         <div class="stats">
-                          <i class="material-icons">date_range</i> Movie Date
+                          <i class="material-icons">date_range</i> Requested Date
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-6 col-sm-6">
+                  <div class="col-lg-10 col-md-8 col-sm-8">
                     <div class="card card-stats">
                       <div class="card-header card-header-danger card-header-icon">
                         <div class="card-icon">
@@ -95,49 +76,78 @@ export const Dashboard = () => {
                             <WeekendSharpIcon />
                           </i>
                         </div>
-                        <p class="card-category">slot Number</p>
+                        <p class="card-category">Requested Time Slot</p>
                         <h3 class="card-title">{data.data.ceatnames}</h3>
                       </div>
                       <div class="card-footer">
                         <div class="stats">
-                          <i class="material-icons">local_offer</i> Ceat Number
+                          <i class="material-icons">local_offer</i>Time Slot Number
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="card card-stats">
-                      <div class="card-header card-header-info card-header-icon">
-                        <div class="card-icon">
-                          <i class="material-icons">
-                            <AttachMoneySharpIcon />
-                          </i>
+                  {data.data.status === true ? (
+                    <div class="col-lg-10 col-md-8 col-sm-8">
+                      <div class="card card-stats">
+                        <div class="card-header card-header-info card-header-icon">
+                          <div class="card-icon">
+                            <i class="material-icons">
+                              <AccessibilityIcon />
+                            </i>
+                          </div>
+                          <p class="card-category">Status</p>
+                          <h3 class="card-title">{data.data.status === true ? "Accepted" : "Rejected"}</h3>
                         </div>
-                        <p class="card-category">Total Amount</p>
-                        <h3 class="card-title">{data.data.totalcost}</h3>
-                      </div>
-                      <div class="card-footer">
-                        <div class="stats">
-                          <i class="material-icons">update</i> Total Amount
+                        <div class="card-footer">
+                          <div class="stats">
+                            <i class="material-icons">update</i>
+                            Status
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  ) : (
+                    <div class="col-lg-10 col-md-8 col-sm-8">
+                      <div class="card card-stats">
+                        <div class="card-header card-header-info card-header-icon">
+                          <div class="card-icon">
+                            <i class="material-icons">
+                              <AccessibilityIcon />
+                            </i>
+                          </div>
+                          <p class="card-category">Status</p>
+                          <h3 class="card-title">{data.data.reject}</h3>
+                        </div>
+                        <div class="card-footer">
+                          <div class="stats">
+                            <i class="material-icons">update</i>
+                            Status
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               );
             })}
-            {openChatBot === true ? <ChatBotCore /> : null}
-            <button
-              onClick={e => {
-                e.preventDefault();
-                setOpenChatBot(!openChatBot);
-                console.log(openChatBot);
-              }}
-            >
-              chat
-            </button>
           </div>
         </div>
+      </div>
+      <div style={{ position: "fixed", bottom: "80px", right: "20px" }}>
+        {openChatBot === true ? <ChatBotCore /> : null}
+        <button
+          style={{ borderRadius: "300px", height: "50px", position: "fixed", bottom: "20px", right: "20px", backgroundColor: "#6e48aa", border: "none", outline: "none", boxShadow: "0px 0px 10px #6e48aa" }}
+          onClick={e => {
+            e.preventDefault();
+            setOpenChatBot(!openChatBot);
+            console.log(openChatBot);
+          }}
+        >
+          <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+        </button>
       </div>
     </div>
   );

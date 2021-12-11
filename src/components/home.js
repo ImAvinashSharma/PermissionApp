@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import "../movie_details.css";
 import Sidebar from "./Sidebar";
+import ChatBotCore from "./ChatBotCore";
 
 export const Homepage = () => {
   const history = useHistory();
   const location = useLocation();
   const { profile, name, email, password, mobile } = location.state;
+  const [openChatBot, setOpenChatBot] = useState(false);
 
   return (
     <div className="wrapper ">
@@ -30,7 +32,7 @@ export const Homepage = () => {
             <div className="col-4" style={{ marginLeft: "auto", marginRight: "auto" }}>
               <div className="card">
                 <div>
-                  <div className="card-img-top img-fluid">
+                  <div className="card-img img-fluid">
                     <img src={"https://image.shutterstock.com/image-vector/linear-department-head-icon-business-260nw-1291107907.jpg"} style={{ width: "18rem", height: "20rem" }} />
                   </div>
                   <button onClick={() => history.push("/")}>View Details</button>
@@ -61,6 +63,22 @@ export const Homepage = () => {
             </div>
           }
         </div>
+      </div>
+      <div style={{ position: "fixed", bottom: "80px", right: "20px" }}>
+        {openChatBot === true ? <ChatBotCore /> : null}
+        <button
+          style={{ borderRadius: "300px", height: "50px", position: "fixed", bottom: "20px", right: "20px", backgroundColor: "#6e48aa", border: "none", outline: "none", boxShadow: "0px 0px 10px #6e48aa" }}
+          onClick={e => {
+            e.preventDefault();
+            setOpenChatBot(!openChatBot);
+            console.log(openChatBot);
+          }}
+        >
+          <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+        </button>
       </div>
     </div>
   );

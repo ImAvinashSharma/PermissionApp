@@ -22,7 +22,7 @@ function Sidebar() {
             return (
               <li className={`nav-item`}>
                 <Link to={{ pathname: ele === "logout" ? "/" : `/${ele}`, state: { profile: profile, name: name, email: email, password: password, mobile: mobile } }} className="nav-link">
-                  <i className="material-icons">{ele === "userprofile" ? "person" : ele}</i>
+                  <i className="material-icons">{ele === "userprofile" ? "person" : ele === "leave" ? "L" : ele}</i>
                   <p>{ele === "leave" ? "Apply for leave" : ele}</p>
                 </Link>
               </li>

@@ -2,8 +2,6 @@ import React from "react";
 import ChatBot from "react-simple-chatbot";
 import { Link } from "react-router-dom";
 
-// const { email } = JSON.parse(localStorage.getItem("email"));
-
 const steps = [
   {
     id: "1",
