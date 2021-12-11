@@ -24,7 +24,7 @@ export const Userprofile = () => {
           </div>
         </nav>
 
-        <div className="profile" style={{ fontFamily: "sans-serif", textAlign: "center", maxWidth: "350px", boxShadow: "0 0 10px rgba(0,0,0,0.2)", padding: "100px" }}>
+        <div className="profile" style={{ fontFamily: "sans-serif", textAlign: "center", width: "350px", boxShadow: "0 0 10px rgba(0,0,0,0.2)", padding: "100px" }}>
           <img src={profile} alt="Profile Image" className="profile__image" style={{ width: "150px", height: "150px", objectFit: "cover", borderRadius: "50%", margin: "0 auto 20px auto", display: "block", marginTop: "-8%" }} />
           <div className="profile__name" style={{ fontSize: "1.2em", fontWeight: "bold" }}>
             {name}

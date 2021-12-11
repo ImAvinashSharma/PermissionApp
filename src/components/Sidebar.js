@@ -1,8 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import fire from "../files/firebase";
 
 function Sidebar() {
-  const sideEle = ["homepage", "dashboard", "bookings", "leave", "userprofile", "logout"];
+  const [isAdmin, setISAdmin] = useState(true);
+
+  useEffect(() => {
+    fire
+      .firestore()
+      .collection("users")
+      .where("email", "==", email)
+      .limit(1)
+      .get()
+      .then(snapshot =>
+        snapshot.forEach(ele => {
+          const data = ele.data();
+          setISAdmin(data.isAdmin);
+          console.log(data.isAdmin);
+        })
+      );
+  }, []);
+  const sideEle = ["homepage", "dashboard", "leave", "userprofile", "logout"];
   const location = useLocation();
   //TODO: to add active class to the current page
   const { profile, name, email, password, mobile } = location.state;
@@ -28,6 +46,14 @@ function Sidebar() {
               </li>
             );
           })}
+          {isAdmin === true ? (
+            <li className="nav-item">
+              <Link to="/admin_leaves" className="nav-link">
+                <i className="material-icons">L</i>
+                <p>All Leave Application</p>
+              </Link>
+            </li>
+          ) : null}
         </ul>
       </div>
     </div>

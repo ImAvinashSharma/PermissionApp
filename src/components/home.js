@@ -27,42 +27,70 @@ export const Homepage = () => {
           </div>
         </nav>
 
-        <div className="row">
-          {
-            <div className="col-4" style={{ marginLeft: "auto", marginRight: "auto" }}>
-              <div className="card">
-                <div>
-                  <div className="card-img img-fluid">
-                    <img src={"https://image.shutterstock.com/image-vector/linear-department-head-icon-business-260nw-1291107907.jpg"} style={{ width: "18rem", height: "20rem" }} />
-                  </div>
-                  <button onClick={() => history.push("/")}>View Details</button>
-                  <button onClick={() => history.push({ pathname: "/bookingform", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } })}>Book Now</button>
-                </div>
-                <div>
-                  <div className="card-img-top img-fluid">
-                    <img src={"https://lh3.googleusercontent.com/proxy/xm_55xTiagmJuY7yj9w3SKJ69xJBUo0egDuNEkK4bs_-_hEdBiuA0eJKU6PPu4xMx8aWQiRJZc-RDcEITtH6wFqgXFpRRKChCuX2HOWZwh2NaNMDfRl0fdYgmvVJzMsiWNYhYaboGyKqwwSDCbihfykXPq__IytW7JQVDDNB"} style={{ width: "18rem", height: "20rem" }} />
-                  </div>
-                  <button onClick={() => history.push("/")}>View Details</button>
-                  <button onClick={() => history.push({ pathname: "/bookingform", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } })}>Book Now</button>
-                </div>
-                <div>
-                  <div className="card-img-top img-fluid">
-                    <img src={"https://image.shutterstock.com/image-vector/linear-department-head-icon-business-260nw-1291107907.jpg"} style={{ width: "18rem", height: "20rem" }} />
-                  </div>
-                  <button onClick={() => history.push("/")}>View Details</button>
-                  <button onClick={() => history.push({ pathname: "/bookingform", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } })}>Book Now</button>
-                </div>
-                <div>
-                  <div className="card-img-top img-fluid">
-                    <img src={"https://image.shutterstock.com/image-vector/linear-department-head-icon-business-260nw-1291107907.jpg"} style={{ width: "18rem", height: "20rem" }} />
-                  </div>
-                  <button onClick={() => history.push("/")}>View Details</button>
-                  <button onClick={() => history.push({ pathname: "/bookingform", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } })}>Book Now</button>
-                </div>
+        {
+          <div style={{ display: "flex", marginTop: "13%", columnGap: "40px" }}>
+            <div>
+              <div className="card-img img-fluid">
+                <img src="https://st2.depositphotos.com/5532432/9733/v/950/depositphotos_97336996-stock-illustration-principal-nameplate-bold-icon-illustration.jpg" style={{ width: "18rem", height: "20rem" }} />
+              </div>
+              <div style={{ display: "flex", marginTop: "10px", columnGap: "10px", width: "auto" }}>
+                <button style={{ borderRadius: "50px" }}>
+                  <a style={{ textDecoration: "none", color: "white" }} href="https://cmrcet.ac.in/">
+                    View Details
+                  </a>
+                </button>
+                <button style={{ borderRadius: "50px" }} onClick={() => history.push({ pathname: "/bookingform", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } })}>
+                  Book Now
+                </button>
               </div>
             </div>
-          }
-        </div>
+            <div>
+              <div className="card-img img-fluid">
+                <img src="https://image.shutterstock.com/image-vector/department-head-icon-trendy-logo-260nw-1224063889.jpg" style={{ width: "18rem", height: "20rem" }} />
+              </div>
+              <div style={{ display: "flex", marginTop: "10px", columnGap: "10px", width: "auto" }}>
+                <button style={{ borderRadius: "50px" }}>
+                  <a style={{ textDecoration: "none", color: "white" }} href="https://cmrcet.ac.in/">
+                    View Details
+                  </a>
+                </button>
+                <button style={{ borderRadius: "50px" }} onClick={() => history.push({ pathname: "/bookingform", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } })}>
+                  Book Now
+                </button>
+              </div>
+            </div>
+            <div>
+              <div className="card-img img-fluid">
+                <img src="https://www.iconitinc.com/images/icon-2.png" style={{ width: "18rem", height: "20rem" }} />
+              </div>
+              <div style={{ display: "flex", marginTop: "10px", columnGap: "10px", width: "auto" }}>
+                <button style={{ borderRadius: "50px" }}>
+                  <a style={{ textDecoration: "none", color: "white" }} href="https://cmrcet.ac.in/">
+                    View Details
+                  </a>
+                </button>
+                <button style={{ borderRadius: "50px" }} onClick={() => history.push({ pathname: "/bookingform", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } })}>
+                  Book Now
+                </button>
+              </div>
+            </div>
+            <div>
+              <div className="card-img img-fluid">
+                <img src="https://image.shutterstock.com/shutterstock/photos/293760305/display_1500/stock-vector-illustration-physical-education-icon-set-293760305.jpg" style={{ width: "18rem", height: "20rem" }} />
+              </div>
+              <div style={{ display: "flex", marginTop: "10px", columnGap: "10px", width: "auto" }}>
+                <button style={{ borderRadius: "50px" }}>
+                  <a style={{ textDecoration: "none", color: "white" }} href="https://cmrcet.ac.in/">
+                    View Details
+                  </a>
+                </button>
+                <button style={{ borderRadius: "50px" }} onClick={() => history.push({ pathname: "/bookingform", state: { profile: profile, name: name, email: email, password: password, mobile: mobile } })}>
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        }
       </div>
       <div style={{ position: "fixed", bottom: "80px", right: "20px" }}>
         {openChatBot === true ? <ChatBotCore /> : null}

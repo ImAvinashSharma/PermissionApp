@@ -5,7 +5,6 @@ import { Home } from "./pages/home";
 import { Homepage } from "./components/home";
 import { Dashboard } from "./components/dashboard";
 import { Userprofile } from "./components/user_profile";
-import { Booking } from "./components/booking";
 import { Ticketbookingform } from "./pages/ticket_booking_form";
 import { Bookingform } from "./pages/booking_form";
 import { Movieupload } from "./admin/movie_upload";
@@ -35,9 +34,6 @@ function App() {
           </Route>
           <Route exact path="/dashboard">
             <Dashboard />
-          </Route>
-          <Route exact path="/bookings">
-            <Booking />
           </Route>
           <Route exact path="/userprofile">
             <Userprofile />
