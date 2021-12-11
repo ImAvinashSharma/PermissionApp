@@ -19,11 +19,9 @@ export const Booking = () => {
         snapshot.forEach(ele => {
           const data = ele.data();
           setuserbookings(arr => [...arr, { data: data }]);
-          // console.log(data);
         })
       );
   }, []);
-  //console.log(userbookings);
   return (
     <div className="wrapper ">
       <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
