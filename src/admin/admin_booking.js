@@ -112,7 +112,7 @@ export const AdminBooking = () => {
               <input type="text" placeholder="Username" value={username} onChange={e => setusername(e.target.value)} />
               <input type="button" style={{ background: "#ff4b2b", color: "white" }} value="Get Data" onClick={getData} />
               <br />
-              {progress == true ? <progress max="100" label={`${progress}%`} value={progress} /> : <p></p>}
+              {progress === true ? <progress max="100" label={`${progress}%`} value={progress} /> : <p></p>}
             </form>
             <div>
               {userbooking.map((bookingdata, index) => {

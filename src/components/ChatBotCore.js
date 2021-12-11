@@ -1,6 +1,8 @@
 import React from "react";
 import ChatBot from "react-simple-chatbot";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+// const { email } = JSON.parse(localStorage.getItem("email"));
 
 const steps = [
   {
@@ -31,13 +33,11 @@ const steps = [
   },
   {
     id: "5",
-    component: <a href="/bookings"> Appointment </a>
+    component: <Link to={{ pathname: "/bookings", state: "admin@admin.com" }}> Appointment </Link>
   }
 ];
 
 function ChatBotCore() {
-  const location = useLocation();
-  const { profile, name, email, password, mobile } = location.state;
   return (
     <div>
       <ChatBot steps={steps} />

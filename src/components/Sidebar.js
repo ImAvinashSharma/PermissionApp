@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 function Sidebar() {
@@ -6,6 +6,9 @@ function Sidebar() {
   const location = useLocation();
   //TODO: to add active class to the current page
   const { profile, name, email, password, mobile } = location.state;
+  useEffect(() => {
+    localStorage.setItem("email", JSON.stringify(email));
+  }, [email]);
   return (
     <div className="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <div className="logo">

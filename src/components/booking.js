@@ -6,7 +6,7 @@ import Sidebar from "./Sidebar";
 
 export const Booking = () => {
   const location = useLocation();
-  const email = location.state.email;
+  const email = "admin@admin.com" || location.state.email;
   const [userbookings, setuserbookings] = useState([]);
 
   useEffect(() => {
