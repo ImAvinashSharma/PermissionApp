@@ -15,8 +15,9 @@ import { Successresponse } from "./response/success_response";
 import { Adminpage } from "./admin/admin_page";
 import { Retrievefeedback } from "./admin/retrieve_feedback";
 import { Adminprofile } from "./admin/admin_profile";
-import Form from "./components/leave";
 import { AdminBooking } from "./admin/admin_booking";
+import Admin_Leaves from "./admin/admin_leaves";
+import Form from "./components/leave";
 
 function App() {
   return (
@@ -67,6 +68,9 @@ function App() {
           </Route>
           <Route exact path="/retrievefeedback">
             <Retrievefeedback />
+          </Route>
+          <Route exact path="/admin_leaves">
+            <Admin_Leaves />
           </Route>
           <Route exact path="/adminprofile">
             <Adminprofile />

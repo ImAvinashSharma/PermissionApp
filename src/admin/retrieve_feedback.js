@@ -6,11 +6,7 @@ import { Link } from "react-router-dom";
 export const Retrievefeedback = () => {
   const history = useHistory();
   const location = useLocation();
-  const profile = location.state.profile;
-  const name = location.state.name;
-  const email = location.state.email;
-  const password = location.state.password;
-  const mobile = location.state.mobile;
+  const { profile, name, email, password, mobile } = location.state;
   const [data, setdata] = useState([]);
   useEffect(() => {
     fire

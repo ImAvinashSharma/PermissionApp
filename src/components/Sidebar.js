@@ -18,7 +18,7 @@ function Sidebar() {
           {sideEle.map(ele => {
             return (
               <li className={`nav-item`}>
-                <Link to={{ pathname: `/${ele}`, state: { profile: profile, name: name, email: email, password: password, mobile: mobile } }} className="nav-link">
+                <Link to={{ pathname: ele === "logout" ? "/" : `/${ele}`, state: { profile: profile, name: name, email: email, password: password, mobile: mobile } }} className="nav-link">
                   <i className="material-icons">{ele === "userprofile" ? "person" : ele}</i>
                   <p>{ele === "leave" ? "Apply for leave" : ele}</p>
                 </Link>
